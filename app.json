@@ -1,5 +1,18 @@
 {
   "expo": {
+    "plugins":[
+      [
+        "expo-notifications",
+        {
+          "icon":"./assets/icon.png",
+          "color":"#ffffff",
+          "sounds":[
+            ".local/assets/notification-sound.wav",
+            "./local/assets/notification-sound-other.wav"
+          ]
+        }
+      ]
+    ],
     "name": "notifications_part1",
     "slug": "notifications_part1",
     "version": "1.0.0",
@@ -21,7 +34,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "useNextNotificationsApi":true
     },
     "web": {
       "favicon": "./assets/favicon.png"

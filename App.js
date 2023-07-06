@@ -1,11 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React,{useEffect} from 'react';
+import { Text, View, Button, Platform,StyleSheet } from 'react-native';
+import * as Notification from 'expo-notifications';
+
+
+Notification.setNotificationHandler({
+  handleNotification:async()=>{
+    return {
+      shouldPlaySound:true,
+      shouldShowAlert:true,
+    }
+  }
+})
+
 
 export default function App() {
+
+
+  const handleNotification=()=>{
+    Notification.scheduleNotificationAsync({
+      content:{
+        title:'Local Notification Example',
+        body:'This is my local notification'
+      },
+      trigger:{
+        seconds:10
+      }
+    })
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Button title={"Open Notification"} onPress={handleNotification}/>
     </View>
   );
 }
